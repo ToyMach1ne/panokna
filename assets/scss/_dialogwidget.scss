@@ -1,0 +1,638 @@
+/*
+DialogWidget CSS
+*/
+
+#ck_overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: none rgba(0, 0, 0, 0.2);
+  z-index: 10000100;
+}
+
+.ck-overlay-blur-flag ~ * {
+  -webkit-filter: blur(2px);
+
+  /* -moz-filter: blur(2px); */
+  -ms-filter: blur(2px);
+  -o-filter: blur(2px);
+
+  /* filter: blur(2px); */
+}
+
+#ck_box {
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    border: 0;
+  }
+
+  font-family: "Verdana", "Geneva CY", "DejaVu Sans", sans-serif;
+  width: 750px;
+  height: 350px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -175px 0 0 -375px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 90px 50px;
+  box-sizing: border-box;
+  z-index: 800;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  &.dw-box-with-heading {
+    padding: 70px 50px 0;
+  }
+}
+
+#dw_phrase_heading {
+  font-weight: bolder;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#ck_phrase {
+  font-family: "Roboto", "Verdana", "Geneva CY", "DejaVu Sans", sans-serif;
+  font-size: 23px;
+  color: #000;
+  min-height: 50px;
+  height: 120px;
+  font-weight: 300;
+  line-height: normal;
+}
+
+#ck_box.dw-box-with-heading #ck_phrase {
+  height: auto;
+  margin-bottom: 20px;
+  min-height: 140px;
+}
+
+#ck_phrase {
+  strong {
+    font-weight: 500;
+  }
+
+  &.ck-response {
+    margin: 50px auto 0;
+  }
+}
+
+#ck_box.dw-box-with-heading #ck_phrase.ck-response {
+  height: 120px;
+  margin-bottom: 0px;
+  min-height: 120px;
+}
+
+#ck_phrase_time {
+  color: #0095E6;
+}
+
+#ck_close_box {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+#dw_popup_site_logo_box {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+
+a.ck-box-link {
+  color: #B0B0B0;
+  font-size: 14px;
+
+  &:hover {
+    color: #7D7D7D;
+    font-size: 14px;
+  }
+}
+
+#ck_box {
+  .callkeep-button {
+    border: medium none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: none repeat scroll 0% 0% #54C3FF;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #FFF;
+    padding: 10px 25px;
+    height: auto;
+
+    &:hover {
+      background: none repeat scroll 0% 0% #7CD1FF;
+    }
+  }
+
+  #ck_phone_submit {
+    width: auto !important;
+  }
+}
+
+#ck_phone_submit[disabled="disabled"] {
+  background-color: #87D5FF;
+
+  &:hover {
+    background-color: #87D5FF;
+  }
+}
+
+#callkeep_form {
+  text-align: center;
+  float: left;
+
+  &.unwh {
+    float: none;
+  }
+}
+
+#ck_box #ck_ajax_container #callkeep_form #ck_phone_input {
+  width: 260px;
+  border: none;
+  border-bottom: 1px solid #C6C6C6;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 20px;
+  color: rgb(182, 182, 182);
+  font-size: 24px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "Verdana", "Geneva CY", "DejaVu Sans", sans-serif;
+  font-style: normal;
+}
+
+#ck_autor_box {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 11px;
+  color: #BEBEBE;
+}
+
+a#ck_autor_link {
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+#ck_loading_icon {
+  display: block;
+  margin: 60px auto 0;
+  opacity: 0.5;
+}
+
+#callkeep_form input {
+  &::-webkit-input-placeholder {
+    color: rgb(182, 182, 182);
+    font-size: 28px;
+    font-style: normal;
+
+    /*font-family: 'Roboto', sans-serif;*/
+  }
+
+  &::-moz-placeholder {
+    color: rgb(182, 182, 182);
+    font-size: 28px;
+    font-style: normal;
+
+    /* font-family: 'Roboto', sans-serif;*/
+  }
+}
+
+/*---------------------BUTTON----------------*/
+
+#ck_phone_a {
+  display: block;
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  opacity: 0.7;
+  z-index: 200;
+  -webkit-transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+  -moz-transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+  -o-transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+  transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.ck-phone-link-hidden {
+    opacity: 0;
+    right: -180px;
+  }
+
+  img {
+    border: 0;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/*---------------------------╨Ю╨▒╤А╨░╤В╨╜╨░╤П ╤Б╨▓╤П╨╖╤М ╨┐╨╛╤Б╨╗╨╡ ╨╖╨░╤П╨▓╨║╨╕---------------------*/
+
+.ck-timer-dots-hidden {
+  opacity: 0;
+}
+
+.ck-aftercall-btn {
+  width: 315px;
+}
+
+#ck_aftercall_no.ck-aftercall-btn {
+  background: #D77788;
+  margin-right: 5px;
+
+  &:hover {
+    background: #EA768B;
+  }
+}
+
+#callkeep_timer {
+  text-align: center;
+
+  &.unwh {
+    display: none;
+  }
+
+  &.ck-timer-inactive {
+    float: right;
+    opacity: 0.7;
+  }
+
+  &.ck-timer-preactive {
+    float: right;
+  }
+}
+
+#ck_aftercall_timer {
+  text-align: left;
+  display: inline-block;
+  min-width: 130px;
+}
+
+#callkeep_timer {
+  img {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: baseline;
+  }
+
+  span {
+    color: #54C3FF;
+
+    /*╨У╨Ю╨Ы╨г╨С╨Ю╨Щ*/
+    font-size: 50px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    line-height: 52px;
+
+    &#ck_timer_seconds {
+      font-weight: 600;
+    }
+
+    &#ck_timer_milliseconds {
+      width: 57px;
+    }
+  }
+}
+
+#ck_aftercall_form {
+  text-align: center;
+}
+
+/*---------------------------------------------------------------
+
+            ╨Ь╨╛╨▒╨╕╨╗╤М╨╜╨░╤П ╨▓╨╡╤А╤Б╨╕╤П
+
+-----------------------------------------------------------------*/
+
+/*----------╨Ъ╨╜╨╛╨┐╨║╨░-----*/
+
+#ck_phone_a {
+  &.ck-phone-link-mobile {
+    right: auto;
+    bottom: auto;
+  }
+
+  &.ck-phone-link-mobile-rb {
+    right: -3px;
+    bottom: -4px;
+  }
+
+  &.ck-phone-link-hidden.ck-phone-link-mobile-rb {
+    right: -133px;
+    bottom: -133px;
+
+    /*---╨Ю╨в╨Э.----*/
+    right: -20vmin;
+    bottom: -20vmin;
+  }
+
+  &.ck-phone-link-mobile-lb {
+    left: -3px;
+    bottom: -4px;
+  }
+
+  &.ck-phone-link-hidden.ck-phone-link-mobile-lb {
+    left: -133px;
+    bottom: -133px;
+
+    /*---╨Ю╨в╨Э.----*/
+    left: -20vmin;
+    bottom: -20vmin;
+  }
+
+  &.ck-phone-link-mobile-lt {
+    left: -3px;
+    top: -3px;
+  }
+
+  &.ck-phone-link-hidden.ck-phone-link-mobile-lt {
+    left: -133px;
+    top: -133px;
+
+    /*---╨Ю╨в╨Э.----*/
+    left: -20vmin;
+    top: -20vmin;
+  }
+
+  &.ck-phone-link-mobile-rt {
+    right: -3px;
+    top: -3px;
+  }
+
+  &.ck-phone-link-hidden.ck-phone-link-mobile-rt {
+    right: -133px;
+    top: -133px;
+
+    /*---╨Ю╨в╨Э.----*/
+    right: -20vmin;
+    top: -20vmin;
+  }
+
+  &.ck-phone-link-mobile img {
+    height: 20vmin !important;
+    width: auto !important;
+  }
+}
+
+/*---------- ╨Ю╨║╨╜╨╛ ----------*/
+@media all and (orientation: portrait) {
+  #ck_box.ck-mobile-box {
+    width: 100%;
+    height: 380px;
+    left: 0;
+    margin: -200px 0 0 0;
+    border-radius: 0;
+    padding: 70px 20px 0;
+
+    /*---╨Ю╨в╨Э.----*/
+    height: 70vmax;
+    margin-top: -35vmax;
+    padding: 12vmin 5vmin 0;
+  }
+
+  div#ck_box.ck-mobile-box input#ck_phone_submit {
+    padding: 4vmin !important;
+    font-size: 4.5vmin !important;
+  }
+}
+
+@media all and (orientation: landscape) {
+  #ck_box.ck-mobile-box {
+    width: 500px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -250px;
+    border-radius: 0;
+    padding: 50px 20px 0;
+
+    /*---╨Ю╨в╨Э.----*/
+    width: 84vmax;
+    margin-left: -42vmax;
+    padding: 15vmin 7vmin 0;
+  }
+
+  div#ck_box.ck-mobile-box div#ck_phrase {
+    font-size: 23px;
+    height: 125px;
+
+    /*---╨Ю╨в╨Э.----*/
+    font-size: 6vmin;
+    min-height: 15vmin;
+    height: 40vmin;
+  }
+
+  #ck_box.ck-mobile-box #ck_phone_submit {
+    /* margin-left: 17vmin !important; */
+  }
+}
+
+/*---------- ╨╖╨░╨║╤А╤Л╤В╤М ╨╛╨║╨╜╨╛ ----------*/
+
+#ck_box.ck-mobile-box {
+  #ck_close_box {
+    right: 8vmin;
+    top: 4vmin;
+  }
+
+  a#ck_close_box_a {
+    font-size: 4.5vmin;
+    text-decoration: none !important;
+    border-bottom: 1px dotted;
+    padding-bottom: 0;
+  }
+
+  #ck_phrase {
+    font-size: 28px;
+    min-height: 55px;
+    height: 135px;
+
+    /*---╨Ю╨в╨Э.----*/
+    font-size: 6vmin;
+    min-height: 20vmin;
+    height: 50vmin;
+    line-height: 7.5vmin;
+
+    &.ck-response {
+      margin: 50px auto 0;
+    }
+  }
+
+  #callkeep_form {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+
+    /*---╨Ю╨в╨Э.----*/
+
+    &.unwh {
+      float: none;
+    }
+  }
+
+  #ck_ajax_container #callkeep_form #ck_phone_input {
+    display: block;
+    width: 320px;
+    margin: 0 0 20px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+
+    /*---╨Ю╨в╨Э.----*/
+    width: 85vmin !important;
+    font-size: 8vmin !important;
+    height: 12vmin !important;
+    line-height: 12vmin !important;
+    margin: 0 0 5vmin !important;
+
+    &::-webkit-input-placeholder {
+      /* ╨┤╨╗╤П webkit ╨▒╤А╨░╤Г╨╖╨╡╤А╨╛╨▓ */
+      font-size: 8vmin;
+    }
+
+    &::-moz-placeholder {
+      /* ╨┤╨╗╤П ╨▒╤А╨░╤Г╨╖╨╡╤А╨╛╨▓ mozilla */
+      font-size: 8vmin;
+    }
+  }
+
+  .callkeep-button {
+    font-size: 5vmin !important;
+    line-height: 5vmin !important;
+  }
+
+  #ck_phone_submit {
+    float: left;
+    padding: 4vmin 6vmin !important;
+    border-radius: 6vmin;
+    width: auto !important;
+  }
+
+  #callkeep_timer {
+    line-height: 40px;
+    float: none;
+    text-align: left;
+    vertical-align: top;
+    margin: 0 auto;
+    width: 190px;
+
+    /*---╨Ю╨в╨Э.----*/
+    width: 50vmin;
+    line-height: 13vmin;
+
+    &.ck-timer-inactive, &.ck-timer-preactive {
+      float: left;
+      margin: 0;
+    }
+
+    img {
+      height: 32px !important;
+      width: auto !important;
+
+      /*---╨Ю╨в╨Э.----*/
+      height: 11vmin !important;
+      display: inline-block !important;
+    }
+
+    &.ck-timer-preactive img, &.ck-timer-inactive img {
+      margin-left: 20px;
+
+      /*---╨Ю╨в╨Э.----*/
+      margin-left: 3vmin;
+    }
+  }
+
+  #ck_timer_seconds, #ck_timer_dots, #ck_timer_milliseconds {
+    font-size: 40px;
+
+    /*---╨Ю╨в╨Э.----*/
+    font-size: 13vmin;
+  }
+}
+
+/*---------- ╨д╤А╨░╨╖╨░ ----------*/
+
+/*---------- ╨д╨╛╤А╨╝╨░ ----------*/
+
+/*---------- ╨Ъ╨╜╨╛╨┐╨║╨░ ╨╛╤В╨┐╤А╨░╨▓╨║╨╕ ----------*/
+
+/*---------- ╨в╨░╨╣╨╝╨╡╤А ----------*/
+
+div#ck_box.ck-mobile-box div {
+  &#callkeep_timer span, &#ck_aftercall_timer {
+    line-height: 40px;
+
+    /*---╨Ю╨в╨Э.----*/
+    line-height: 13vmin !important;
+    min-width: 32vmin;
+  }
+}
+
+/*---------------╨Я╨╛╤Б╨╗╨╡ ╨╛╤В╨┐╤А╨░╨▓╨║╨╕-------------*/
+
+#ck_box.ck-mobile-box {
+  .ck-aftercall-btn {
+    width: 100% !important;
+    display: block;
+    margin: 0 auto !important;
+    padding: 4.5vmin 0 !important;
+    border-radius: 6vmin;
+  }
+
+  #ck_aftercall_no.ck-aftercall-btn {
+    margin-bottom: 20px !important;
+
+    /*---╨Ю╨в╨Э.----*/
+    margin-bottom: 4vmin !important;
+  }
+
+  #ck_autor_box {
+    bottom: 4vmin;
+    right: 8vmin;
+    font-size: 3.5vmin;
+
+    #ck_autor_link {
+      font-size: 3.5vmin;
+    }
+  }
+}
+
+/*---------------╨Ъ╨╛╨┐╨╕╤А╨░╨╣╤В--------------*/
+
+/*---------------╨Я╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤М╤Б╨║╨╕╨╡ ╤Д╨╛╤А╨╝╤Л--------------*/
+
+img.dw-uform-load-image {
+  display: none !important;
+
+  /*    max-width: 20px;
+      height: auto;*/
+  border: 0;
+}
+
+/*---------------------------------------------------------------
+
+      ╨Ь╨Х╨Ф╨Ш╨Р
+
+-----------------------------------------------------------------*/
+@media screen and (max-width: 1400px) {
+  #ck_phone_a {
+    right: 70px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #ck_phone_a {
+    right: 30px;
+    bottom: 50px;
+  }
+}

@@ -1,0 +1,388 @@
+$(function(){
+
+	$('div.btn-orange').on('click',function(){
+		
+		var phrase_wh='Мы перезвоним вам за 25 секунд, ответим на все вопросы и рассчитаем стоимость для Вашей квартиры!';
+		var phrase_nwh='Мы ответим на все вопросы и рассчитаем стоимость для Вашей квартиры!';
+		
+		if($(this).parent().find('h2').text().length){
+			phrase_wh='Мы перезвоним вам за 25 секунд, ответим на все вопросы и рассчитаем сколько будет стоить <b>'+$(this).prevAll("h2").first().text().toLowerCase()+'</b> для Вашей квартиры!';
+			phrase_nwh='Мы ответим на все вопросы и рассчитаем сколько будет стоить <b>'+$(this).prevAll("h2").first().text().toLowerCase()+'</b> для Вашей квартиры!';
+		}else{
+			phrase_wh='Мы перезвоним вам за 25 секунд и уточним сколько будет стоить <b>'+$('#navibar li').last().text().substr(3).toLowerCase()+'</b> для Вашей квартиры!';
+			phrase_nwh='Мы ответим на все вопросы и уточним сколько будет стоить <b>'+$('#navibar li').last().text().substr(3).toLowerCase()+'</b> для Вашей квартиры!';
+
+		}
+		
+		DialogWidget.globalDW.activatePopup(phrase_wh,phrase_nwh); 
+		return false;
+	});
+	
+	/* таймер на главной */
+	
+	var cur_date_obj = new Date();
+	cur_date_obj.setHours(21,0,0,0);
+
+	if (cur_date_obj.getDate() < 15) {
+		cur_date_obj.setDate(15);
+	} else {
+		cur_date_obj.setDate(1);
+		cur_date_obj.setMonth(cur_date_obj.getMonth() + 1);
+		cur_date_obj.setDate(cur_date_obj.getDate() - 1);
+	}
+	
+	if (typeof $('.mainpage_timer').flipTimer == 'function')$('.mainpage_timer').flipTimer({ direction: 'down', date: cur_date_obj, callback: function() { } });
+	
+    /* Отправка формы ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК */
+    function senddir(form){
+        //$.validator.addMethod("phone", function(pnumber) {
+            //var stripped = pnumber.replace(/^[0-9]$/, '');
+            //if (isNaN(parseInt(stripped)) || (stripped.length > 12 || stripped.length < 6)) {
+            //    return false;
+            //}else{
+            //    return true;
+            //}
+        //} , "поле не заполнено или заполнено не верно");
+
+        $.validator.addClassRules({
+            phonumb: {
+                required: true,
+                digits: true,
+                minlength: 11,
+                maxlength: 11
+            },
+            txtfield: {
+                required: true
+            }
+        });
+        form.validate({
+            submitHandler: function(result) {
+                /*form.append('<div class="preload"><img src="/img/25.png" alt="Идет отправка"></div>');*/
+                $.ajax({
+                    type: 'post',
+                    url: '/sendtodir.php',
+                    data: form.serialize(),
+                    success: function(result){
+                        if($.trim(result)=='ok'){
+                        ga('send', 'event', 'Director form', 'Submit');
+                            $.fancybox('<h3>Ваше сообщение отправлено на рассмотрение.<\/h3><p>В случае необходимости наше руководство свяжется с вами для уточнения деталей.<\/p>',{
+                                helpers: {
+                                    overlay : null
+                                },
+                                wrapCSS: 'get-callback-form-ok',
+                                openEffect: 'fade',
+                                closeEffect: 'fade',
+                                maxWidth: '260px'
+                            });
+                        }else{
+                            $.fancybox('<h3>Ошибка отправки сообщения<\/h3><p>Попробуйте подать заявку позже, или свяжитесь с нами по этому телефону : '+$('#header .contacrs .tel').text()+'.<\/p>',{
+                                helpers: {
+                                    overlay : null
+                                },
+                                wrapCSS: 'get-callback-form-error',
+                                openEffect: 'fade',
+                                closeEffect: 'fade',
+                                maxWidth: '355px'
+                            });
+                        }
+                        $('.preload').remove();
+                    },
+                    error: function(result){
+                        $.fancybox('<h3>Ошибка связи с сервером<\/h3><p>Попробуйте подать заявку позже, или свяжитесь с нами по этому телефону : -.<\/p>',{
+                            helpers: {
+                                overlay : null
+                            },
+                            wrapCSS: 'get-callback-form-error',
+                            openEffect: 'elastic',
+                            closeEffect: 'elastic',
+                            maxWidth: '355px'
+                        });
+                    }
+                });
+				//calltouchsend
+				jQuery.getJSON('http://api.calltouch.ru/calls-service/RestAPI/requests/orders/register/', {
+					clientApiId:"453636202ct8a643f6dfbe45b95420fc5e6cfe5f6f8",
+					fio: jQuery('[name = name]').val(),
+					phoneNumber: jQuery('[name = phone]').val(),
+					sessionId: window.call_value
+				});
+            }
+        });
+        return false;
+    }
+
+    $('#senddir input[type="submit"]').on('click', function(){
+        senddir($(this).parents('form:first'));
+    });
+});
+
+/* Письмодиректору конец*/
+
+/* Письмо заказ*/
+
+$(function(){
+    /* Отправка формы ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК */
+    function sendorder(form){
+        //$.validator.addMethod("phone", function(pnumber) {
+        //var stripped = pnumber.replace(/^[0-9]$/, '');
+        //if (isNaN(parseInt(stripped)) || (stripped.length > 12 || stripped.length < 6)) {
+        //    return false;
+        //}else{
+        //    return true;
+        //}
+        //} , "поле не заполнено или заполнено не верно");
+
+        $.validator.addClassRules({
+            phonumb: {
+                required: true,
+                digits: true,
+                minlength: 11,
+                maxlength: 11
+            }
+        });
+        form.validate({
+            //errorPlacement: function(error, element) {
+            //if (element.attr("name") == "name") error.insertAfter($("input[name=name]", '#'+thisformid));
+            //if (element.attr("name") == "tel") error.insertAfter($("input[name=tel]", '#'+thisformid));
+            //},
+            submitHandler: function(result) {
+                /*form.append('<div class="preload"><img src="/img/25.png" alt="Идет отправка"></div>');*/
+                $.ajax({
+                    type: 'post',
+                    url: '/sendpost.php',
+                    data: form.serialize(),
+                    success: function(result){
+                        if($.trim(result)=='ok'){
+                        	ga('send', 'event', 'Callback form', 'Submit');
+                            $.fancybox('<h3>Ваша заявка принята<\/h3><p>Наш менеджер свяжется с Вами по указанному номеру в ближайшее время.<\/p>',{
+                                helpers: {
+                                    overlay : null
+                                },
+                                wrapCSS: 'get-callback-form-ok',
+                                openEffect: 'fade',
+                                closeEffect: 'fade',
+                                maxWidth: '260px'
+                            });
+                        }else{
+                            $.fancybox('<h3>Ошибка отправки сообщения<\/h3><p>Попробуйте подать заявку позже, или свяжитесь с нами по этому телефону : '+$('#header .contacrs .tel').text()+'.<\/p>',{
+                                helpers: {
+                                    overlay : null
+                                },
+                                wrapCSS: 'get-callback-form-error',
+                                openEffect: 'fade',
+                                closeEffect: 'fade',
+                                maxWidth: '355px'
+                            });
+                        }
+                        $('.preload').remove();
+                    },
+                    error: function(result){
+                        $.fancybox('<h3>Ошибка связи с сервером<\/h3><p>Попробуйте подать заявку позже, или свяжитесь с нами по этому телефону : -.<\/p>',{
+                            helpers: {
+                                overlay : null
+                            },
+                            wrapCSS: 'get-callback-form-error',
+                            openEffect: 'elastic',
+                            closeEffect: 'elastic',
+                            maxWidth: '355px'
+                        });
+                    }
+                });
+				//calltouchsend
+				jQuery.getJSON('http://api.calltouch.ru/calls-service/RestAPI/requests/orders/register/', {
+					clientApiId:"453636202ct8a643f6dfbe45b95420fc5e6cfe5f6f8",
+					fio: jQuery('[name = name]').val(),
+					phoneNumber: jQuery('[name = phone]').val(),
+					sessionId: window.call_value
+				});
+            }
+        });
+        return false;
+    }
+
+    $('#sendorder input[type="submit"]').on('click', function(){
+        sendorder($(this).parents('form:first'));
+    });
+});
+
+/* Письмо-отзыв*/
+
+$(function(){
+    /* Отправка формы ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК */
+    function sendotz(form){
+        //$.validator.addMethod("phone", function(pnumber) {
+        //var stripped = pnumber.replace(/^[0-9]$/, '');
+        //if (isNaN(parseInt(stripped)) || (stripped.length > 12 || stripped.length < 6)) {
+        //    return false;
+        //}else{
+        //    return true;
+        //}
+        //} , "поле не заполнено или заполнено не верно");
+
+        $.validator.addClassRules({
+            phonumb: {
+                required: true,
+                digits: true,
+                minlength: 11,
+                maxlength: 11
+            },
+            txtfield: {
+                required: true
+            }
+        });
+        form.validate({
+            //errorPlacement: function(error, element) {
+            //if (element.attr("name") == "name") error.insertAfter($("input[name=name]", '#'+thisformid));
+            //if (element.attr("name") == "tel") error.insertAfter($("input[name=tel]", '#'+thisformid));
+            //},
+            submitHandler: function(result) {
+                /*form.append('<div class="preload"><img src="/img/25.png" alt="Идет отправка"></div>');*/
+                $.ajax({
+                    type: 'post',
+                    url: '/sendotzyv.php',
+                    data: form.serialize(),
+                    success: function(result){
+                        if($.trim(result)=='ok'){
+                        	ga('send', 'event', 'Review form', 'Submit');
+                            $.fancybox('<h3>Ваш отзыв принят.<\/h3><p>Спасибо, что вы с нами. Мы очень ценим Ваше мнение!<\/p>',{
+                                helpers: {
+                                    overlay : null
+                                },
+                                wrapCSS: 'get-callback-form-ok',
+                                openEffect: 'fade',
+                                closeEffect: 'fade',
+                                maxWidth: '260px'
+                            });
+                        }else{
+                            $.fancybox('<h3>Ошибка отправки сообщения<\/h3><p>Попробуйте подать заявку позже, или свяжитесь с нами по этому телефону : '+$('#header .contacrs .tel').text()+'.<\/p>',{
+                                helpers: {
+                                    overlay : null
+                                },
+                                wrapCSS: 'get-callback-form-error',
+                                openEffect: 'fade',
+                                closeEffect: 'fade',
+                                maxWidth: '355px'
+                            });
+                        }
+                        $('.preload').remove();
+                    },
+                    error: function(result){
+                        $.fancybox('<h3>Ошибка связи с сервером<\/h3><p>Попробуйте подать заявку позже, или свяжитесь с нами по этому телефону : -.<\/p>',{
+                            helpers: {
+                                overlay : null
+                            },
+                            wrapCSS: 'get-callback-form-error',
+                            openEffect: 'elastic',
+                            closeEffect: 'elastic',
+                            maxWidth: '355px'
+                        });
+                    }
+                });
+            }
+        });
+        return false;
+    }
+
+    $('#sendotzyv input[type="submit"]').on('click', function(){
+        sendotz($(this).parents('form:first'));
+    });
+});
+
+/* Письмо-отзыв конец*/
+
+
+/**
+ * Кнопка наверх на jQuery.
+ *
+ * Стили:
+ .scrollTop{
+	background:url('ссылка_на_картинку') 0 0 no-repeat;
+	width:50px;
+	height:50px;
+	bottom:10px;
+	left:48%;
+}
+ .scrollTop:hover{ background-position:0 -58px; }
+ *
+ */
+$(function(){
+var $up = $('#up');
+if($(window).scrollTop() < 10) {
+    $up.fadeOut('fast');
+}
+
+$(window).on("scroll", function() {
+
+    if($(window).scrollTop() > 10) {
+        $up.fadeIn('fast');
+    }
+    if($(window).scrollTop() < 10) {
+        $up.fadeOut('fast');
+    }
+    
+    if($(window).scrollTop()>5){
+	    $('.remont_rentv').css('bottom','-90px').css('opacity','0');
+    }else{
+	    $('.remont_rentv').css('bottom','0').css('opacity','.95');;
+    }
+
+});
+
+    $up.click(function(){
+        $('body,html').animate({
+            scrollTop: 0
+        }, 1000);
+    });
+});
+
+
+$(function(){
+    $('#promo_box.test > .inner').bxSlider({
+        mode:'fade',
+        pager:false,
+        controls:false,
+        auto:true,
+        onSlideBefore: function($slideElement, oldIndex, newIndex){
+            $slideElement.find('span').removeClass('seen');
+            $slideElement.removeClass('seen');
+        },
+        onSlideAfter: function($slideElement, oldIndex, newIndex){
+            $slideElement.find('span').addClass('seen');
+            $slideElement.addClass('seen');
+        }    
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

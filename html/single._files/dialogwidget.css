@@ -1,0 +1,534 @@
+/*
+DialogWidget CSS
+*/
+#ck_overlay {
+	position:fixed;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background: none rgba(0, 0, 0, 0.2);
+	z-index:10000100;
+}
+.ck-overlay-blur-flag ~ *{
+	-webkit-filter: blur(2px);
+	/* -moz-filter: blur(2px); */
+	-ms-filter: blur(2px);
+	-o-filter: blur(2px);
+	/* filter: blur(2px); */
+}
+#ck_box * {
+	box-sizing: border-box;
+}
+#ck_box img {
+	border: 0;
+}
+#ck_box{
+    font-family: "Verdana", "Geneva CY", "DejaVu Sans", sans-serif;
+    width: 750px;
+    height: 350px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin:-175px 0 0 -375px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 90px 50px;
+    box-sizing: border-box;
+    z-index:800;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+#ck_box.dw-box-with-heading {
+    padding: 70px 50px 0;
+}
+#dw_phrase_heading {
+    font-weight: bolder;
+    display: block;
+    margin-bottom: 15px;
+}
+#ck_phrase {
+    font-family: "Roboto", "Verdana", "Geneva CY", "DejaVu Sans", sans-serif;
+    font-size: 23px;
+    color: #000;
+    min-height:50px;
+    height:120px;
+    font-weight: 300;
+    line-height: normal;
+}
+#ck_box.dw-box-with-heading #ck_phrase {
+    height: auto;
+    margin-bottom: 20px;
+    min-height: 140px;
+}
+
+#ck_phrase strong {
+    font-weight: 500;
+}
+#ck_phrase.ck-response {
+    margin:50px auto 0;
+}
+#ck_box.dw-box-with-heading #ck_phrase.ck-response {
+    height:120px;
+    margin-bottom: 0px;
+    min-height: 120px;
+}
+
+#ck_phrase_time {
+    color:#0095E6;
+}
+
+#ck_close_box {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+#dw_popup_site_logo_box {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}
+
+a.ck-box-link {
+	color: #B0B0B0;
+	font-size: 14px;
+}
+
+a.ck-box-link:hover {
+	color: #7D7D7D;
+	font-size: 14px;
+}
+#ck_box .callkeep-button {
+	border: medium none;
+	border-radius: 15px;
+	cursor: pointer;
+	background: none repeat scroll 0% 0% #54C3FF;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #FFF;
+	padding: 10px 25px;
+        height: auto;
+        
+}
+#ck_box .callkeep-button:hover {
+	background: none repeat scroll 0% 0% #7CD1FF;
+}
+#ck_box #ck_phone_submit{
+    width: auto !important;
+}
+#ck_phone_submit[disabled="disabled"], #ck_phone_submit[disabled="disabled"]:hover {
+	background-color: #87D5FF;
+}
+#callkeep_form {
+	text-align:center;
+	float: left;
+}
+#callkeep_form.unwh {
+	float: none;
+}
+
+#ck_box #ck_ajax_container #callkeep_form #ck_phone_input {
+    width: 260px;
+    border: none;
+    border-bottom: 1px solid #C6C6C6;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+    color: rgb(182, 182, 182);
+    font-size: 24px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: "Verdana", "Geneva CY", "DejaVu Sans", sans-serif;
+    font-style: normal;
+}
+#ck_autor_box {
+	position:absolute;
+	bottom:20px;
+	right:30px;
+	font-size:11px;
+	color:#BEBEBE;
+}
+a#ck_autor_link {
+	font-size:11px;
+        text-decoration: underline;
+}
+#ck_loading_icon {
+	display:block;
+	margin:60px auto 0;
+        opacity: 0.5;
+}
+#callkeep_form input::-webkit-input-placeholder {
+    color: rgb(182, 182, 182);
+    font-size: 28px;
+	font-style:normal;
+    /*font-family: 'Roboto', sans-serif;*/
+}
+#callkeep_form input::-moz-placeholder {
+    color: rgb(182, 182, 182);
+    font-size: 28px;
+	font-style:normal;
+   /* font-family: 'Roboto', sans-serif;*/
+}
+
+/*---------------------BUTTON----------------*/
+
+#ck_phone_a {
+	display:block;
+	position: fixed;
+	right: 100px;
+	bottom: 100px;
+	opacity:0.7;
+	z-index:200;
+	-webkit-transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+	-moz-transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+	-o-transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+	transition: right 0.3s ease-out 0s, opacity 0.3s linear 0s, bottom 0.3s ease-out 0s;
+}
+#ck_phone_a:hover {
+	opacity:1;
+}
+
+#ck_phone_a.ck-phone-link-hidden {
+	opacity:0;
+	right:-180px;
+}
+#ck_phone_a img {
+	border: 0;
+	width:90px;
+	height:90px;
+}
+/*---------------------------Обратная связь после заявки---------------------*/
+.ck-timer-dots-hidden {
+	opacity: 0;
+}
+.ck-aftercall-btn {
+	width: 315px;
+}
+#ck_aftercall_no.ck-aftercall-btn {
+	background: #D77788;
+	margin-right: 5px;
+}
+#ck_aftercall_no.ck-aftercall-btn:hover {
+	background: #EA768B;
+}
+#callkeep_timer {
+	text-align:center;
+}
+#callkeep_timer.unwh {
+	display:none;
+}
+#callkeep_timer.ck-timer-inactive {
+	float: right;
+	opacity: 0.7;
+}
+#callkeep_timer.ck-timer-preactive {
+	float: right;
+}
+#ck_aftercall_timer {
+	text-align: left;
+	display: inline-block;
+	min-width: 130px;
+}
+#callkeep_timer img {
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: baseline;
+}
+#callkeep_timer span {
+	color: #54C3FF; /*ГОЛУБОЙ*/
+	font-size: 50px;
+	font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+	line-height: 52px;
+}
+#callkeep_timer span#ck_timer_seconds {
+	font-weight: 600;
+}
+#callkeep_timer span#ck_timer_milliseconds {
+	width: 57px;
+}
+
+
+#ck_aftercall_form {
+	text-align: center;
+}
+
+
+
+
+/*---------------------------------------------------------------
+
+						Мобильная версия
+						
+-----------------------------------------------------------------*/
+
+/*----------Кнопка-----*/
+#ck_phone_a.ck-phone-link-mobile {
+	right: auto;
+	bottom: auto;
+}
+
+#ck_phone_a.ck-phone-link-mobile-rb {
+ 	right: -3px;
+	bottom: -4px;
+}
+#ck_phone_a.ck-phone-link-hidden.ck-phone-link-mobile-rb {
+ 	right: -133px;
+	bottom: -133px;
+	/*---ОТН.----*/
+ 	right: -20vmin;
+	bottom: -20vmin;
+}
+
+
+#ck_phone_a.ck-phone-link-mobile-lb {
+ 	left: -3px;
+	bottom: -4px;
+}
+#ck_phone_a.ck-phone-link-hidden.ck-phone-link-mobile-lb {
+ 	left: -133px;
+	bottom: -133px;
+	/*---ОТН.----*/
+ 	left: -20vmin;
+	bottom: -20vmin;
+}
+
+#ck_phone_a.ck-phone-link-mobile-lt {
+ 	left: -3px;
+	top: -3px;
+}
+#ck_phone_a.ck-phone-link-hidden.ck-phone-link-mobile-lt {
+ 	left: -133px;
+	top: -133px;
+	/*---ОТН.----*/
+ 	left: -20vmin;
+	top: -20vmin;
+}
+
+#ck_phone_a.ck-phone-link-mobile-rt {
+ 	right: -3px;
+	top: -3px;
+}
+#ck_phone_a.ck-phone-link-hidden.ck-phone-link-mobile-rt {
+ 	right: -133px;
+	top: -133px;
+	/*---ОТН.----*/
+ 	right: -20vmin;
+	top: -20vmin;
+}
+#ck_phone_a.ck-phone-link-mobile img{
+	height: 20vmin !important;
+	width: auto !important;
+}
+/*---------- Окно ----------*/
+@media all and (orientation:portrait) {
+	#ck_box.ck-mobile-box {
+		width: 100%;
+		height: 380px;
+		left:0;
+		margin:-200px 0 0 0;
+		border-radius: 0;
+		padding: 70px 20px 0;
+		/*---ОТН.----*/
+		height: 70vmax;
+		margin-top:-35vmax;
+		padding: 12vmin 5vmin 0;
+	}
+	div#ck_box.ck-mobile-box input#ck_phone_submit {
+		padding: 4vmin !important;
+		font-size: 4.5vmin !important;
+	}
+}
+@media all and (orientation:landscape) {
+	#ck_box.ck-mobile-box {
+		width: 500px;
+		height: 100%;
+		top: 0;
+		left:50%;
+		margin:0 0 0 -250px;
+		border-radius: 0;
+		padding: 50px 20px 0;
+		/*---ОТН.----*/
+		width: 84vmax;
+		margin-left: -42vmax;
+		padding: 15vmin 7vmin 0;
+	}
+	div#ck_box.ck-mobile-box div#ck_phrase {
+		font-size: 23px;
+		height:125px;
+		/*---ОТН.----*/
+		font-size: 6vmin;
+		min-height:15vmin;
+		height:40vmin;
+	}
+	#ck_box.ck-mobile-box #ck_phone_submit {
+		/* margin-left: 17vmin !important; */
+	}
+}
+/*---------- закрыть окно ----------*/
+#ck_box.ck-mobile-box  #ck_close_box {
+	right: 8vmin;
+    top: 4vmin;
+}
+#ck_box.ck-mobile-box  a#ck_close_box_a {
+	font-size: 4.5vmin;
+	text-decoration: none !important;
+	border-bottom: 1px dotted;
+	padding-bottom: 0;
+}
+/*---------- Фраза ----------*/
+#ck_box.ck-mobile-box #ck_phrase {
+	font-size: 28px;
+	min-height:55px;
+	height:135px;
+	/*---ОТН.----*/
+	font-size: 6vmin;
+	min-height:20vmin;
+	height:50vmin;
+	line-height: 7.5vmin;
+}
+#ck_box.ck-mobile-box #ck_phrase.ck-response {
+	margin:50px auto 0;
+}
+/*---------- Форма ----------*/
+#ck_box.ck-mobile-box #callkeep_form {
+	float: none;
+	width: 100%;
+	margin: 0 auto;
+	/*---ОТН.----*/
+	
+}
+#ck_box.ck-mobile-box #callkeep_form.unwh {
+	float: none;
+}
+#ck_box.ck-mobile-box #ck_ajax_container #callkeep_form #ck_phone_input {
+	display: block;
+	width: 320px;
+	margin: 0 0 20px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+	/*---ОТН.----*/
+	width: 85vmin !important;
+    font-size: 8vmin !important;
+	height: 12vmin !important;
+	line-height: 12vmin !important;
+	margin: 0 0 5vmin !important;
+}
+#ck_box.ck-mobile-box #ck_ajax_container #callkeep_form #ck_phone_input::-webkit-input-placeholder { /* для webkit браузеров */
+	font-size: 8vmin;
+}
+#ck_box.ck-mobile-box #ck_ajax_container #callkeep_form #ck_phone_input::-moz-placeholder { /* для браузеров mozilla */
+	font-size: 8vmin;
+}
+/*---------- Кнопка отправки ----------*/
+#ck_box.ck-mobile-box .callkeep-button {
+	font-size: 5vmin !important;
+	line-height: 5vmin !important;
+}
+#ck_box.ck-mobile-box #ck_phone_submit {
+	float: left;
+	padding: 4vmin 6vmin !important;
+    border-radius: 6vmin;
+	width: auto !important;
+}
+
+/*---------- Таймер ----------*/
+#ck_box.ck-mobile-box #callkeep_timer {
+	line-height: 40px;
+	float: none;
+	text-align: left;
+	vertical-align: top;
+	margin: 0 auto;
+	width: 190px;
+	/*---ОТН.----*/
+	width: 50vmin;
+	line-height: 13vmin;
+}
+
+#ck_box.ck-mobile-box #callkeep_timer.ck-timer-inactive,
+#ck_box.ck-mobile-box #callkeep_timer.ck-timer-preactive {
+	float: left;
+	margin: 0;
+}
+#ck_box.ck-mobile-box #callkeep_timer img {
+	height: 32px !important;
+	width: auto !important;
+	/*---ОТН.----*/
+	height: 11vmin !important;
+	display: inline-block !important;
+}
+
+#ck_box.ck-mobile-box #callkeep_timer.ck-timer-preactive img,
+#ck_box.ck-mobile-box #callkeep_timer.ck-timer-inactive img {
+	margin-left: 20px;
+	/*---ОТН.----*/
+	margin-left: 3vmin;
+}
+
+#ck_box.ck-mobile-box #ck_timer_seconds,
+#ck_box.ck-mobile-box #ck_timer_dots,
+#ck_box.ck-mobile-box #ck_timer_milliseconds {
+	font-size: 40px;
+	/*---ОТН.----*/
+	font-size: 13vmin;
+}
+div#ck_box.ck-mobile-box div#callkeep_timer span,
+div#ck_box.ck-mobile-box div#ck_aftercall_timer {
+	line-height: 40px;
+	/*---ОТН.----*/
+	line-height: 13vmin !important;
+	min-width: 32vmin;
+}
+
+
+
+
+/*---------------После отправки-------------*/
+
+#ck_box.ck-mobile-box .ck-aftercall-btn {
+	width: 100% !important;
+	display: block;
+	margin: 0 auto !important;
+	padding: 4.5vmin 0 !important;
+    border-radius: 6vmin;
+}
+#ck_box.ck-mobile-box #ck_aftercall_no.ck-aftercall-btn {
+	margin-bottom: 20px !important;
+	/*---ОТН.----*/
+	margin-bottom: 4vmin !important;
+}
+
+/*---------------Копирайт--------------*/
+#ck_box.ck-mobile-box #ck_autor_box {
+    bottom: 4vmin;
+    right: 8vmin;
+    font-size: 3.5vmin;
+}
+#ck_box.ck-mobile-box #ck_autor_box #ck_autor_link{
+    font-size: 3.5vmin;
+}
+
+/*---------------Пользовательские формы--------------*/
+img.dw-uform-load-image {
+    display: none !important;
+/*    max-width: 20px;
+    height: auto;*/
+    border: 0;
+}
+/*---------------------------------------------------------------
+
+			МЕДИА
+						
+-----------------------------------------------------------------*/
+@media screen and (max-width: 1400px) {
+    #ck_phone_a {
+        right: 70px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    #ck_phone_a {
+        right: 30px;
+        bottom: 50px;
+    }
+}
