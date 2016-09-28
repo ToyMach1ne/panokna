@@ -107,7 +107,7 @@ function wpeHeadNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="headnav">%3$s</ul>',
+    'items_wrap'      => '<ul>%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -153,7 +153,7 @@ function wpeSideNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="sidebarnav">%3$s</ul>',
+    'items_wrap'      => '<div class="options_banners asside-box">%3$s</div>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -181,7 +181,7 @@ if (function_exists('register_sidebar')) {
     'after_title' => '</h6>'
   ));
   //  Define Sidebar Widget Area 2. If your want to display more widget - uncoment this
-  /*
+
   register_sidebar(array(
     'name' => __('Блок виджетов #2', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
@@ -191,7 +191,7 @@ if (function_exists('register_sidebar')) {
     'before_title' => '<h6>',
     'after_title' => '</h6>'
   ));
-  */
+
 }
 
 //  Custom Excerpts

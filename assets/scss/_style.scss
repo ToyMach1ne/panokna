@@ -315,7 +315,7 @@ p {
     transition: all 0.3s ease;
   }
 
-  .active {
+  .current-menu-item {
     background: #f4f3f3;
     color: #000 !important;
 
@@ -2134,4 +2134,173 @@ span {
   }
 
   img {}
+}
+.fancybox-margin {
+        margin-right: 17px;
+    }
+.asside-box {
+  .option_first_banner {
+    background: url(../img/zamer.png);
+    display: block;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d7;
+  width: 194px;
+  height: 93px;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    border: 1px solid #919191;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fefafa;
+    font-size: 14px;
+    display: block;
+    margin: 30px 0 0 86px;
+  }
+  }
+  .option_second_banner {
+    background: url(../img/option_banner_1.png);
+    display: block;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d7;
+  width: 194px;
+  height: 93px;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    border: 1px solid #919191;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fefafa;
+    font-size: 14px;
+    display: block;
+    margin: 30px 0 0 86px;
+  }
+  }
+  .option_third_banner {
+    background: url(../img/pay_button.jpg);
+    display: block;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d7;
+  width: 194px;
+  height: 93px;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+a {
+    text-decoration: none;
+  }
+  &:hover {
+    border: 1px solid #919191;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fefafa;
+    font-size: 14px;
+    display: block;
+    margin: 30px 0 0 86px;
+  }
+  }
+  .option_fourth_banner {
+    background: url(../img/option_banner_2.png);
+    display: block;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d7;
+  width: 194px;
+  height: 93px;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+a {
+    text-decoration: none;
+  }
+  &:hover {
+    border: 1px solid #919191;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fefafa;
+    font-size: 14px;
+    display: block;
+    margin: 30px 0 0 86px;
+  }
+  }
+  .option_fifth_banner {
+    background: url(../img/option_banner_3.png);
+    display: block;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d7;
+  width: 194px;
+  height: 93px;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+a {
+    text-decoration: none;
+  }
+  &:hover {
+    border: 1px solid #919191;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fefafa;
+    font-size: 14px;
+    display: block;
+    margin: 30px 0 0 86px;
+  }
+  }
+  .option_sixth_banner{
+    background: url(../img/option_banner_4.png);
+    display: block;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d7;
+  width: 194px;
+  height: 93px;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+a {
+    text-decoration: none;
+  }
+  &:hover {
+    border: 1px solid #919191;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fefafa;
+    font-size: 14px;
+    display: block;
+    margin: 30px 0 0 86px;
+  }
+  }
 }
