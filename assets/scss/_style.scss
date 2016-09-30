@@ -2362,3 +2362,34 @@ background:#fff;
 
   }
 }
+.wpcf7-form-control-wrap {
+  width: 47%;
+    margin: 2px 0px 5px 15px;
+    display: -moz-inline-stack;
+    display: block;
+    float: left;
+    vertical-align: top;
+    zoom: 1;
+  .input-inline-top {
+      width: 100%;
+    height: 32px;
+    border: 1px solid #b4b3b3;
+    color: #b4b3b3;
+    font: normal 14px 'Roboto', sans-serif;
+    outline: none;
+    text-indent: 10px;
+    transition: all 0.5s ease;
+    line-height: 2.3;
+  }
+}
+.input-inline-submit {
+      background: #fd6b2b;
+    border: 0;
+    padding: 9px 25px;
+    color: #fdfcfc;
+    font-size: 16px;
+    transition: all 0.5s ease;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: flex;
+}

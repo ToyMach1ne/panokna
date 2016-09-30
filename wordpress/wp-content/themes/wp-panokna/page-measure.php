@@ -15,17 +15,10 @@
           </div>
           <div class="content-block-2 central-content" umi:element-id="342" umi:field-name="content">
             <?php the_content(); ?>
-                        </div>
-
-            <div style="float:none; margin-top:20px">&nbsp;</div>
+          </div>
             <?php get_template_part('free-measure'); ?>
-
-            </div>
-                    <!-- #content-->
-                </div><!-- #container-->
-            </div>
-
-            <!-- #middle-->
-
-    </section>
+      </div>
+    </div><!-- #content-->
+  </div><!-- #container-->
+</section><!-- #middle-->
 <?php get_footer(); ?>
